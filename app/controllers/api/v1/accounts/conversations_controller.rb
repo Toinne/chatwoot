@@ -3,13 +3,28 @@ class Api::V1::Accounts::ConversationsController < Api::V1::Accounts::BaseContro
   include DateRangeHelper
   include HmacConcern
 
-  before_action :conversation, except: [:index, :meta, :search, :create, :filter]
+  before_action :conversation, except: [:index, :meta, :search, :create, :filter, :rookoo_conversation]
   before_action :inbox, :contact, :contact_inbox, only: [:create]
 
   def index
     result = conversation_finder.perform
     @conversations = result[:conversations]
     @conversations_count = result[:count]
+  end
+
+  def rookoo_conversation
+    service = Conversations::RookooService.new(
+      Current.account,
+      Current.user
+    )
+    rookoo_agent = RookooAgents::RookooAgentService.get(rookoo_params[:rookoo_reference_id])
+    conversation = service.initiate_conversation_with(rookoo_agent)
+
+    render json: conversation
+  end
+
+  def rookoo_params
+    params.permit(:rookoo_reference_id)
   end
 
   def meta

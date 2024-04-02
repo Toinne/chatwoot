@@ -131,6 +131,12 @@ class ConversationApi extends ApiClient {
   getAllAttachments(conversationId) {
     return axios.get(`${this.url}/${conversationId}/attachments`);
   }
+
+  createRookooConversation({ rookooReferenceId }) {
+    return axios.post(`${this.url}/rookoo_conversation`, {
+      rookoo_reference_id: rookooReferenceId,
+    });
+  }
 }
 
 export default new ConversationApi();

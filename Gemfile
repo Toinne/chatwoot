@@ -178,6 +178,9 @@ gem 'reverse_markdown'
 # Sentiment analysis
 gem 'informers'
 
+# ID generation
+gem 'ulid-ruby', '~> 1.0'
+
 ### Gems required only in specific deployment environments ###
 ##############################################################
 

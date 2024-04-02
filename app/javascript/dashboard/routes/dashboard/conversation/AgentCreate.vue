@@ -1,0 +1,34 @@
+<template>
+  <button
+    class="sm:w-[50%] md:w-1/3 lg:w-1/4 bg-white dark:bg-slate-900 cursor-pointer flex flex-col transition-all duration-200 ease-in -m-px mb-4 py-4 px-0 items-center border border-solid border-slate-25 dark:border-slate-800 hover:border-woot-500 dark:hover:border-woot-500 hover:shadow-md hover:z-50 disabled:opacity-60"
+    @click="$emit('click')"
+  >
+    <fluent-icon
+      icon="person"
+      type="filled"
+      size="200"
+      class="text-woot-300 dark:text-woot-300"
+    />
+    <h3 class="text-slate-800 dark:text-slate-100 text-base text-center">
+      {{ $t('CREATE_CONVERSATION.CREATE_ROOKOO_AGENT') }}
+    </h3>
+  </button>
+</template>
+
+<script>
+export default {
+  props: {},
+};
+</script>
+
+<style scoped lang="scss">
+.inactive {
+  img {
+    filter: grayscale(100%);
+  }
+
+  &:hover {
+    @apply border-transparent shadow-none cursor-not-allowed;
+  }
+}
+</style>

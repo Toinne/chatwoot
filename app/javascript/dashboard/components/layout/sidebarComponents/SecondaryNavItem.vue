@@ -142,6 +142,12 @@ export default {
       }
       return true;
     },
+    isNewConversation() {
+      return (
+        isOnMentionsView({ route: this.$route }) &&
+        this.menuItem.toStateName === 'new_conversation'
+      );
+    },
     isAllConversations() {
       return (
         this.$store.state.route.name === 'inbox_conversation' &&

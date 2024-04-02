@@ -67,8 +67,15 @@
 </template>
 
 <script>
-import { required, minLength, email } from 'vuelidate/lib/validators';
+import { required, minLength } from 'vuelidate/lib/validators';
 import { mapGetters } from 'vuex';
+
+const requiredForNonAI = value => {
+  return (
+    (this && this.agentType === 'ai') ||
+    (value && typeof value === 'string' && value.indexOf('@') !== -1)
+  );
+};
 
 export default {
   props: {
@@ -93,6 +100,10 @@ export default {
           name: 'agent',
           label: this.$t('AGENT_MGMT.AGENT_TYPES.AGENT'),
         },
+        {
+          name: 'ai',
+          label: this.$t('AGENT_MGMT.AGENT_TYPES.AI'),
+        },
       ],
       show: true,
     };
@@ -101,6 +112,9 @@ export default {
     ...mapGetters({
       uiFlags: 'agents/getUIFlags',
     }),
+    isAi() {
+      return this.agentType === 'ai';
+    },
   },
   validations: {
     agentName: {
@@ -108,8 +122,7 @@ export default {
       minLength: minLength(1),
     },
     agentEmail: {
-      required,
-      email,
+      requiredForNonAI,
     },
     agentType: {
       required,

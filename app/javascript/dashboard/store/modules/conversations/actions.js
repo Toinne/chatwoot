@@ -27,6 +27,14 @@ export const hasMessageFailedWithExternalError = pendingMessage => {
 
 // actions
 const actions = {
+  createRookooConversation: async ({}, { rookooReferenceId }) => {
+    const response = await ConversationApi.createRookooConversation({
+      rookooReferenceId: rookooReferenceId,
+    });
+
+    return response.data;
+  },
+
   getConversation: async ({ commit }, conversationId) => {
     try {
       const response = await ConversationApi.show(conversationId);

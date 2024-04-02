@@ -1,0 +1,7 @@
+{
+  "CREATE_CONVERSATION": {
+    "SELECT_ROOKOO_AGENT": "Select an Agent to chat with",
+    "CREATE_ROOKOO_AGENT": "Create a new Agent",
+    "API_ERROR": "Couldn't initiate conversation! Try again"
+  }
+}

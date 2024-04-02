@@ -1,6 +1,7 @@
 /* eslint arrow-body-style: 0 */
 import { frontendURL } from '../../../helper/URLHelper';
 const ConversationView = () => import('./ConversationView');
+const NewConversationView = () => import('./NewConversationView');
 const InboxView = () => import('../inbox/InboxView.vue');
 
 export default {
@@ -28,6 +29,15 @@ export default {
       name: 'home',
       roles: ['administrator', 'agent'],
       component: ConversationView,
+      props: () => {
+        return { inboxId: 0 };
+      },
+    },
+    {
+      path: frontendURL('accounts/:accountId/conversations/create'),
+      name: 'new_conversation',
+      roles: ['administrator', 'agent'],
+      component: NewConversationView,
       props: () => {
         return { inboxId: 0 };
       },

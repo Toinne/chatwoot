@@ -110,6 +110,7 @@ export const INBOX_EVENTS = Object.freeze({
   MARK_NOTIFICATION_AS_UNREAD: 'Marked notification as unread',
   DELETE_NOTIFICATION: 'Deleted notification',
   DELETE_ALL_NOTIFICATIONS: 'Deleted all notifications',
+  CREATE_NEW_ROOKOO_CONVERSATION: 'New conversation started',
 });
 
 export const SLA_EVENTS = Object.freeze({

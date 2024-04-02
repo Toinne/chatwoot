@@ -113,17 +113,18 @@ export default {
         if (!isAvailableForTheUser) {
           return false;
         }
-        if (
-          menuItem.alwaysVisibleOnChatwootInstances &&
-          !this.isACustomBrandedInstance
-        ) {
-          return true;
-        }
+        // if (
+        //   menuItem.alwaysVisibleOnChatwootInstances &&
+        //   !this.isACustomBrandedInstance
+        // ) {
+        //   return true;
+        // }
         if (menuItem.featureFlag) {
-          return this.isFeatureEnabledonAccount(
-            this.accountId,
-            menuItem.featureFlag
-          );
+          return false;
+          // return this.isFeatureEnabledonAccount(
+          //   this.accountId,
+          //   menuItem.featureFlag
+          // );
         }
         return true;
       });

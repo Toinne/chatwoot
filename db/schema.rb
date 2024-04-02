@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2024_02_16_055809) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_30_162140) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
@@ -841,6 +840,26 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_16_055809) do
     t.index ["inbox_id"], name: "index_reporting_events_on_inbox_id"
     t.index ["name"], name: "index_reporting_events_on_name"
     t.index ["user_id"], name: "index_reporting_events_on_user_id"
+  end
+
+  create_table "rookoo_agent_references", force: :cascade do |t|
+    t.string "agent_id", null: false
+    t.string "outgoing_url", null: false
+    t.bigint "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_rookoo_agent_references_on_account_id"
+  end
+
+  create_table "rookoo_agents", force: :cascade do |t|
+    t.string "agent_id", null: false
+    t.string "outgoing_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "account_id"
+    t.string "name"
+    t.string "description"
+    t.index ["account_id"], name: "index_rookoo_agents_on_account_id"
   end
 
   create_table "sla_policies", force: :cascade do |t|

@@ -4,6 +4,7 @@ const conversations = accountId => ({
   parentNav: 'conversations',
   routes: [
     'home',
+    'new_conversation',
     'inbox_dashboard',
     'inbox_conversation',
     'conversation_through_inbox',
@@ -22,6 +23,14 @@ const conversations = accountId => ({
     'conversation_through_unattended',
   ],
   menuItems: [
+    {
+      icon: 'chat',
+      label: 'NEW_CONVERSATION',
+      key: 'new_conversation',
+      toState: frontendURL(`accounts/${accountId}/conversations/create`),
+      toolTip: 'Start a new conversation',
+      toStateName: 'new_conversation',
+    },
     {
       icon: 'chat',
       label: 'ALL_CONVERSATIONS',

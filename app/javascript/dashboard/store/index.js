@@ -44,6 +44,7 @@ import teams from './modules/teams';
 import userNotificationSettings from './modules/userNotificationSettings';
 import webhooks from './modules/webhooks';
 import draftMessages from './modules/draftMessages';
+import rookooAgents from './modules/rookooAgents';
 
 import LogRocket from 'logrocket';
 import createPlugin from 'logrocket-vuex';
@@ -111,6 +112,7 @@ export default new Vuex.Store({
     webhooks,
     draftMessages,
     sla,
+    rookooAgents,
   },
   plugins,
 });

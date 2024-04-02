@@ -83,6 +83,7 @@ Rails.application.routes.draw do
               get :meta
               get :search
               post :filter
+              post :rookoo_conversation
             end
             scope module: :conversations do
               resources :messages, only: [:index, :create, :destroy] do
@@ -300,6 +301,7 @@ Rails.application.routes.draw do
               get :team
             end
           end
+          resources :rookoo_agents
           resources :reports, only: [:index] do
             collection do
               get :summary
