@@ -47,7 +47,7 @@ export default {
 @tailwind components;
 @tailwind utilities;
 
-@import 'shared/assets/fonts/plus-jakarta';
+@import 'shared/assets/fonts/clashdisplay';
 @import 'shared/assets/stylesheets/colors';
 @import 'shared/assets/stylesheets/spacing';
 @import 'shared/assets/stylesheets/font-size';
@@ -56,7 +56,7 @@ export default {
 html,
 body {
   font-family:
-    'PlusJakarta',
+    'ClashDisplay-Medium',
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
